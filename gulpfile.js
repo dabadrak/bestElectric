@@ -39,7 +39,7 @@ gulp.task('sass', () => {
 gulp.task('js:es6', () => {
   return gulp.src('app/js/**/*.js')
       .pipe(rename({
-        suffix: '.es6'
+        suffix: '.es6',
       }))
       .pipe(gulp.dest('dist/js'))
 });
@@ -67,13 +67,13 @@ gulp.task('server', () => {
   return bs({
     browser: 'chrome',
     server: {
-      baseDir: 'dist'
-    }
+      baseDir: 'dist',
+    },
   })
 });
 
 gulp.task('pug:watch', () => {
-  return gulp.watch(['app/pug/*.pug', 'app/pug/**/*.pug'], gulp.series('pug', (done) => {
+  return gulp.watch(['app/pug/*.pug', 'app/pug/**/*.pug',], gulp.series('pug', (done) => {
     bs.reload();
     done();
   }))

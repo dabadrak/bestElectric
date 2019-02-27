@@ -14,5 +14,10 @@
     "dist/bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "owl.carousel": "owl-carousel2#^2.3.4",
+    "jquery-mask-plugin": "jquery-mask#^1.14.15"
+  }
 }
