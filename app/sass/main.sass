@@ -1,0 +1,36 @@
+@import fontface
+@import vars
+@import header
+@import mainMenu
+
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+html body
+  width: 100%
+  height: 100%
+
+html
+  font-family: "PT Sans", sans-serif
+  font-size: 5px
+  color: $darkFontColor
+
+.mainContent
+  height: calc(100%)
+
+.content
+  max-width: $siteWidth
+  padding: 0 1%
+  margin: 0 auto
+
+.bgTop
+  width: 100%
+  position: absolute
+  z-index: -10
+  height: 100vh
+  background: url("../img/bgTop.jpg") top right no-repeat
+  background-size: cover
+
+@import mw800
