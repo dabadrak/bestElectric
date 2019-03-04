@@ -1,4 +1,4 @@
-class SubMenu extends MainMenu {
+class SubMenu extends Menu {
   constructor (label, href, ulClass, liClass, items) {
     super (ulClass, items);
     this.label = label;

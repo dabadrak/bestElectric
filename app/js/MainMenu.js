@@ -1,4 +1,4 @@
-class MainMenu {
+class Menu {
   constructor(ulClass, items) {
     this.items = items;
     this.ulClass = ulClass;
