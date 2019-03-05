@@ -46,16 +46,21 @@
       line-height: 40px
       border-bottom: transparent 2px solid
       margin-left: 20px
+      transition: transform 300ms, border-bottom-color 300ms
+
       &:hover
-        border-bottom: $darkFontColor 2px solid
+        border-bottom: $secondColor 2px solid
+        transform: translateY(-3px)
         >a
           color: $secondColor
-          font-weight: bold
+
+          //font-weight: bold
     li.active>a
       color: $secondColor
     a
       text-decoration: none
       color: $darkFontColor
+      transition: color 800ms
 
     .mainMenuSub
       position: absolute

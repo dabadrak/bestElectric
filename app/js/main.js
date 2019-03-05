@@ -1,7 +1,7 @@
 $(document).ready(()=> {
-  let view = (() => {
+  const view = (() => {
     const $mainMenuContainer = $('#mainMenu');
-    let menu = new Menu('mainMenu',
+    const menu = new Menu('mainMenu',
         [
           new SubMenu('Услуги', '#', 'mainMenuSub', 'mainMenuSubLi', [
             new MenuItem('Проводка в квартире и доме', '#'),
@@ -18,7 +18,7 @@ $(document).ready(()=> {
     $mainMenuContainer.append(menu._render());
     
     const $mobileMenuContainer = $('#mobileMenu');
-    let mobileMenu = new Menu('mobileMenu',
+    const mobileMenu = new Menu('mobileMenu',
         [
           new SubMenu('Услуги', '#', 'mobileMenuSub', 'mobileMenuSubLi', [
             new MenuItem('Проводка в квартире и доме', '#'),
@@ -33,36 +33,64 @@ $(document).ready(()=> {
         ]
     );
     $mobileMenuContainer.append(mobileMenu._render());
+  
+   
   })();
   
-  let control = (() => {
-    let $subMenuContainer = $('.mainMenuSubLi');
-    $subMenuContainer.hover(()=> {
-      $subMenuContainer
-          .toggleClass('active')
-          .find('ul')
-          .fadeToggle(400)
-    });
+  const control = (() => {
+    const menu = (() =>{
+      const $header = $('#header');
+      let lastScrollTop = 0;
+      $(window).scroll(() => {
+        let scrollTop = $(this).scrollTop();
+        if (scrollTop > lastScrollTop) {
+          $header.hide('slide', {direction: 'up'}, 300);
+        } else {
+          $header.show('slide', {direction: 'up'}, 300);
+        }
+        lastScrollTop = scrollTop;
+      });
+      
+      const $subMenuContainer = $('.mainMenuSubLi');
+      $subMenuContainer.hover(()=> {
+        $subMenuContainer
+            .toggleClass('active')
+            .find('ul')
+            .fadeToggle(400)
+      });
+
+      const $mobileMenuSideBar = $('.mobileMenuSideBar');
+      const $mobileMenuContentMask = $('#mobileMenuContentMask');
+      $('#mobileMenuBtn').click(() => {
+        $mobileMenuSideBar.show('slide', {direction: 'right'}, 500);
+        $mobileMenuContentMask.fadeIn();
+      });
   
-    
-    const $mobileMenuSideBar = $('.mobileMenuSideBar');
-    const $mobileMenuContentMask = $('#mobileMenuContentMask');
-    $('#mobileMenuBtn').click(() => {
-      $mobileMenuSideBar.show('slide', {direction: 'right'}, 500);
-      $mobileMenuContentMask.fadeIn();
+      function hideMenu() {
+        $mobileMenuSideBar.hide('slide', {direction: 'right'}, 500);
+        $mobileMenuContentMask.fadeOut();
+      }
+  
+      $('#mobileMenuCloseBtn').click(() => {hideMenu()});
+      $mobileMenuContentMask.click(() => {hideMenu()});
+  
+      $('.mobileMenuSubLi>a').click(() => {
+        $('.mobileMenuSub').slideToggle()
+      });
+    })();
+  })();
+  
+  const plugins = (() => {
+    //Табы с мини прайсами в начале страницы
+    $('#servicesTabs').tabs({
+      active: 0,
+      hide: {
+        effect: "drop",
+        duration: 1000
+      }
     });
     
-    function hideMenu() {
-      $mobileMenuSideBar.hide('slide', {direction: 'right'}, 500);
-      $mobileMenuContentMask.fadeOut();
-    }
-  
-    $('#mobileMenuCloseBtn').click(() => {hideMenu()});
-  
-    $mobileMenuContentMask.click(() => {hideMenu()});
-    
-    $('.mobileMenuSubLi>a').click(() => {
-      $('.mobileMenuSub').slideToggle()
-    });
+    //Аккордион мини прайсов
+    $('#accordion').accordion(1000);
   })();
 });

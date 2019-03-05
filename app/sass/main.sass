@@ -2,12 +2,14 @@
 @import vars
 @import header
 @import offer
+@import services
 @import mobileMenu
 
 *
   box-sizing: border-box
   margin: 0
   padding: 0
+  outline: 0
 
 html body
   width: 100%
@@ -19,7 +21,11 @@ html
   color: $darkFontColor
 
 body
-  overflow: hidden
+  overflow-x: hidden
+
+h2
+  font-size: 8.57rem
+  text-align: center
 
 button
   border: 0
@@ -29,10 +35,10 @@ button
   height: calc(100%)
 
 .content
+  width: 100%
   max-width: $siteWidth
   padding: 0 1%
   margin: 0 auto
-  width: 100%
 
 .contentWidth
   width: 95%
@@ -42,7 +48,7 @@ button
   width: 100%
   position: absolute
   z-index: -10
-  height: 100vh
+  height: calc(100vh + 140px)
   background: url("../img/bgTop.jpg") top right no-repeat
   background-size: cover
 

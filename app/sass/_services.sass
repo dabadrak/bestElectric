@@ -1,0 +1,89 @@
+.servicesPriceNavBg
+  background-image: linear-gradient(to top, rgb(51, 50, 50), rgba(51, 50, 50, 0.99), rgba(51, 50, 50, 0.97), rgba(51, 50, 50, 0.95), rgba(51, 50, 50, 0.9), rgba(51, 50, 50, 0.8), rgba(51, 50, 50, 0.7), rgba(51, 50, 50, 0.5), rgba(51, 50, 50, 0.2), rgba(51, 50, 50, 0))
+
+.servicesPriceNav
+  height: 140px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  li
+    transition: transform 300ms
+    &:hover
+      transform: scale(1.2)
+  a
+    display: block
+    color: #ffffff
+    text-decoration: none
+    font-size: 4.71rem
+    font-weight: bold
+    figure
+      display: flex
+      .imgContainer
+        width: 150px
+        display: flex
+        justify-content: center
+        &__1
+          background: url("../img/servicesComplexDots.png") center no-repeat
+        &__2
+          background: url("../img/servicesToolsDots.png") center no-repeat
+        &__3
+          background: url("../img/servicesCommercialDots.png") center no-repeat
+      figcaption
+        display: flex
+        align-items: center
+        margin-left: 3rem
+
+.servicesTabs
+  background-color: $darkBgColor
+  .servicesTab
+    h2
+      color: #ffffff
+    .content
+      height: calc(100vh - 140px)
+    .servicesTabContent
+      font-size: 4rem
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      #accordion
+        width: 50%
+        border-radius: 5px
+        overflow: hidden
+      h3
+        font-weight: normal
+        text-align: center
+        line-height: 7rem
+        background-color: #acacac
+        cursor: pointer
+        transition: background-color 200ms
+        &:hover
+          background-color: #dfdfdf
+        &:active
+          background-color: #acacac
+      h3.ui-accordion-header-active
+        background-color: #dfdfdf
+
+      table
+        width: 100%
+        margin: 5px 0
+        line-height: 7rem
+        td
+          background-color: #ffffff
+          border-left: 5px solid $darkBgColor
+          border-bottom: 5px solid $darkBgColor
+          text-align: center
+          &:first-child
+            width: 70%
+            border-left: 0
+            text-align: left
+            padding-left: 4rem
+
+
+
+  #servicesTabs1
+
+  #servicesTabs2
+    background-color: #19ff24
+  #servicesTabs3
+    background-color: #2c65ff
+
