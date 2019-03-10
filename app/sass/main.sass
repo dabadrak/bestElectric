@@ -40,9 +40,29 @@ button
   padding: 0 1%
   margin: 0 auto
 
-.contentWidth
+.contentWide
   width: 95%
   margin: 0 auto
+
+.button
+  display: block
+  font-size: 4.8rem
+  line-height: 7rem
+  text-decoration: none
+  text-align: center
+  border-radius: 5px
+  transition: background-color 200ms
+  &__services
+    width: 49.5%
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+  &__white
+    background-color: #ffffff
+    color: $darkFontColor
+    &:hover
+      background-color: #dfdfdf
+    &:active
+      background-color: #acacac
 
 .bgTop
   width: 100%

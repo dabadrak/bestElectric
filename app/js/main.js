@@ -81,6 +81,12 @@ $(document).ready(()=> {
   })();
   
   const plugins = (() => {
+  
+    //Аккордионы мини прайсов
+    $('#accordionWiring').accordion(1000);
+    $('#accordionTools').accordion(1000);
+    $('#accordionCommercial').accordion(1000);
+    
     //Табы с мини прайсами в начале страницы
     $('#servicesTabs').tabs({
       active: 0,
@@ -90,7 +96,13 @@ $(document).ready(()=> {
       }
     });
     
-    //Аккордион мини прайсов
-    $('#accordion').accordion(1000);
+    //Подсветка лэйбла активного таба
+    $('.servicesPriceNav').click('li', (e) => {
+      $('.servicesPriceNav')
+          .find('.active')
+          .removeClass('active');
+      e.target.parentNode.classList.add('active')
+    });
+    
   })();
 });

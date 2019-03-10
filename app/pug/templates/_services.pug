@@ -3,30 +3,31 @@ section.servicesWrap
     .servicesPriceNavBg
       .content
         ul.servicesPriceNav
+          li.active
+            figure
+              .imgContainer.imgContainer__1
+                img(src='img/servicesComplex.png')
+              figcaption Проводка<br>в&nbsp;квартире<br>и&nbsp;в&nbsp;доме
+            a(href='#servicesTabs1').labelScreen
           li
-            a(href='#servicesTabs1')
-              figure
-                .imgContainer.imgContainer__1
-                  img(src='img/servicesComplex.png')
-                figcaption Проводка<br>в&nbsp;квартире<br>и&nbsp;в&nbsp;доме
+            figure
+              .imgContainer.imgContainer__2
+                img(src='img/servicesTools.png')
+              figcaption Установка<br>электро-<br>приборов
+            a(href='#servicesTabs2').labelScreen
           li
-            a(href='#servicesTabs2')
-              figure
-                .imgContainer.imgContainer__2
-                  img(src='img/servicesTools.png')
-                figcaption Установка<br>электро-<br>приборов
-          li
-            a(href='#servicesTabs3')
-              figure
-                .imgContainer.imgContainer__3
-                  img(src='img/servicesCommercial.png')
-                figcaption Коммерческая<br>электрика
+            figure
+              .imgContainer.imgContainer__3
+                img(src='img/servicesCommercial.png')
+              figcaption Коммерческая<br>электрика
+            a(href='#servicesTabs3').labelScreen
     .servicesTabs
-        article.servicesTab#servicesTabs1
-          .content
-            h2 Устройство электропроводки
+      article.servicesTab#servicesTabs1
+        .content
+          h2 Устройство электропроводки
+          .servicesTabContentWrap
             .servicesTabContent
-              #accordion
+              #accordionWiring.accordion__services
                 h3 Проводка
                 .miniPrice
                   table(border=0, cellspacing=0, cellpadding=0)
@@ -99,12 +100,165 @@ section.servicesWrap
                     tr
                       each val in ['Штробление','150',"м.кв"]
                         td= val
-
-        .servicesTab#servicesTabs2
-          .content
-            h2 Установка электроприборов
+              a(href="").button.button__services.button__white Подробнее
+              a(href="#prices").button.button__services.button__white Все цены
+      article.servicesTab#servicesTabs2
+        .content
+          h2 Установка электроприборов
+          .servicesTabContentWrap
             .servicesTabContent
-        .servicesTab#servicesTabs3
-          .content
-            h2 Коммерческая электрика
+              #accordionTools.accordion__services
+                h3 Проводка
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                h3 Штробление
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                h3 Щитовое оборудование
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+              a(href="").button.button__services.button__white Подробнее
+              a(href="#prices").button.button__services.button__white Все цены
+      article.servicesTab#servicesTabs3
+        .content
+          h2 Коммерческая электрика
+          .servicesTabContentWrap
             .servicesTabContent
+              #accordionCommercial.accordion__services
+                h3 Проводка
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                h3 Штробление
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                h3 Щитовое оборудование
+                .miniPrice
+                  table(border=0, cellspacing=0, cellpadding=0)
+                    tr
+                      each val in ['Штробление','150', 'м.кв']
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+                    tr
+                      each val in ['Штробление','150',"м.кв"]
+                        td= val
+              a(href="").button.button__services.button__white Подробнее
+              a(href="#prices").button.button__services.button__white Все цены
