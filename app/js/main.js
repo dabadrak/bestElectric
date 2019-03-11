@@ -34,6 +34,7 @@ $(document).ready(()=> {
     );
     $mobileMenuContainer.append(mobileMenu._render());
   
+  new BubblyButton();
    
   })();
   
@@ -44,9 +45,9 @@ $(document).ready(()=> {
       $(window).scroll(() => {
         let scrollTop = $(this).scrollTop();
         if (scrollTop > lastScrollTop) {
-          $header.hide('slide', {direction: 'up'}, 300);
+          $header.hide('slide', {direction: 'up'}, 200);
         } else {
-          $header.show('slide', {direction: 'up'}, 300);
+          $header.show('slide', {direction: 'up'}, 200);
         }
         lastScrollTop = scrollTop;
       });
@@ -56,18 +57,18 @@ $(document).ready(()=> {
         $subMenuContainer
             .toggleClass('active')
             .find('ul')
-            .fadeToggle(400)
+            .fadeToggle(200)
       });
 
       const $mobileMenuSideBar = $('.mobileMenuSideBar');
       const $mobileMenuContentMask = $('#mobileMenuContentMask');
       $('#mobileMenuBtn').click(() => {
-        $mobileMenuSideBar.show('slide', {direction: 'right'}, 500);
+        $mobileMenuSideBar.show('slide', {direction: 'right'}, 200);
         $mobileMenuContentMask.fadeIn();
       });
   
       function hideMenu() {
-        $mobileMenuSideBar.hide('slide', {direction: 'right'}, 500);
+        $mobileMenuSideBar.hide('slide', {direction: 'right'}, 200);
         $mobileMenuContentMask.fadeOut();
       }
   
@@ -75,24 +76,28 @@ $(document).ready(()=> {
       $mobileMenuContentMask.click(() => {hideMenu()});
   
       $('.mobileMenuSubLi>a').click(() => {
-        $('.mobileMenuSub').slideToggle()
+        $('.mobileMenuSub').slideToggle(200)
       });
     })();
   })();
   
-  const plugins = (() => {
+  const services = (() => {
   
     //Аккордионы мини прайсов
-    $('#accordionWiring').accordion(1000);
-    $('#accordionTools').accordion(1000);
-    $('#accordionCommercial').accordion(1000);
+    $('#accordionWiring').accordion(100);
+    $('#accordionTools').accordion(100);
+    $('#accordionCommercial').accordion(100);
     
     //Табы с мини прайсами в начале страницы
     $('#servicesTabs').tabs({
       active: 0,
       hide: {
-        effect: "drop",
-        duration: 1000
+        effect: "fade",
+        duration: 200
+      },
+      show: {
+        effect: "fade",
+        duration: 200
       }
     });
     

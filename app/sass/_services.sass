@@ -7,13 +7,15 @@
   justify-content: space-between
   align-items: center
   li
-    transition: transform 300ms
+    transition: transform ease-in 100ms
     position: relative
     display: block
     &:hover
-      transform: scale(1.2)
+      transform: scale(1.1)
+    &:active
+      transform: scale(1)
     &.active
-      transform: scale(1.2)
+      transform: scale(1.1)
       .imgContainer__1
         background: url("../img/servicesComplexDotsActive.png") center no-repeat
       .imgContainer__2
@@ -112,8 +114,8 @@
           background-color: #dfdfdf
         td
           background-color: #ffffff
-          border-left: 5px solid
-          border-bottom: 5px solid
+          border-left: 5px solid $darkBgColor
+          border-bottom: 5px solid $darkBgColor
           text-align: center
           &:first-child
             width: 70%

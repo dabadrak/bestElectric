@@ -1,0 +1,116 @@
+.servicesBig
+  padding-top: 40px
+  h2
+    padding-bottom: 40px
+  .servicesBigArticle
+    padding: 40px 0
+    &__housesAppartments
+      background: url("../img/servicesBigHousesAppartmentsBg.png") left 40% bottom no-repeat
+      padding-top: 0
+    &__woodenHouses
+      background: #5e5249 url("../img/servicesBigWoodenHousesBg.png") left 40% bottom no-repeat
+      color: white
+    &__commercial
+      background: $darkBgColor url("../img/servicesBigCommercialBg.png") left 40% bottom no-repeat
+      color: white
+    .content
+      display: flex
+      justify-content: space-between
+    .left
+      width: 49%
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      .top
+        h3
+          font-size: 7.5rem
+          margin-bottom: 1rem
+          &.noMargin
+            margin-bottom: 0
+        h4
+          font-size: 5.5rem
+        h5
+          font-size: 4.2rem
+          font-weight: normal
+          margin-bottom: 1rem
+        ol
+          font-size: 4.5rem
+          padding-left: 7rem
+          margin-bottom: 3rem
+      .bottom
+        .infographics
+          display: flex
+          justify-content: space-between
+          margin-bottom: 3rem
+          .inner
+            width: 50%
+          figure
+            display: flex
+            img
+              margin-right: 2rem
+          figcaption
+            display: flex
+            flex-wrap: wrap
+            h5
+              font-size: 3.86rem
+              font-weight: bold
+              width: 100%
+            span
+              display: flex
+              align-items: flex-end
+            .number
+              font-size: 9.29rem
+              color: #ff7c5b
+              font-weight: bold
+              line-height: 7rem
+            .label
+              margin-left: 1rem
+              font-size: 3.43rem
+              font-weight: bold
+        .buttons
+          display: flex
+          justify-content: space-between
+
+    .right
+      width: 49%
+      position: relative
+      &:hover>img
+        transform: scale(1.02)
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5)
+      &:hover>.imgMask
+        transform: scale(1.02)
+        opacity: 1
+      &:hover>span
+        border-color: #afafaf
+        color: #afafaf
+      &:active>span
+        border-color: #ffffff
+        color: #ffffff
+      img
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.23)
+        transition: all ease-out 300ms
+        width: 100%
+
+      .imgMask
+        opacity: 0
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        top: 0
+        right: 0
+        background: rgba(0, 0, 0, 0.7)
+        width: 100%
+        height: 100%
+        transition: all ease-out 300ms
+        font-size: 6rem
+        color: #ffffff
+        cursor: pointer
+        span
+          border: 2px solid #ffffff
+          padding: 0 5rem
+          line-height: 12rem
+          transition: all ease-out 100ms
+          &:hover
+            border-color: #afafaf
+            color: #afafaf
