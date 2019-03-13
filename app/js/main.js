@@ -35,7 +35,6 @@ $(document).ready(()=> {
     $mobileMenuContainer.append(mobileMenu._render());
   
   new BubblyButton();
-   
   })();
   
   const control = (() => {
@@ -108,6 +107,5 @@ $(document).ready(()=> {
           .removeClass('active');
       e.target.parentNode.classList.add('active')
     });
-    
   })();
 });
