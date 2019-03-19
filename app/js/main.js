@@ -74,6 +74,9 @@ $(document).ready(()=> {
   
       $('#mobileMenuCloseBtn').click(() => {hideMenu()});
       $mobileMenuContentMask.click(() => {hideMenu()});
+      
+      $('#mobileMenu').find('a').not($('.mobileMenuSubLi')).click(() => {hideMenu()});
+      $mobileMenuContentMask.click(() => {hideMenu()});
   
       $('.mobileMenuSubLi>a').click(() => {
         $('.mobileMenuSub').slideToggle(200)

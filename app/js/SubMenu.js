@@ -8,7 +8,7 @@ class SubMenu extends Menu {
   
   _render() {
     let $li = $(`<li class="${this.liClass}"/>`);
-    let $a = $(`<a href="${this.href}">${this.label}</a>`);
+    let $a = $(`<a href="${this.href}" class="${this.liClass}">${this.label}</a>`);
     let $subMenu = super._render();
     $a.appendTo($li);
     $subMenu.appendTo($li);
