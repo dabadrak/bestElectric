@@ -1,5 +1,15 @@
 "use strict";
 
+/**
+ * Модуль портфолио. Получает по ajax список объектов, в конейнере по переданному адресу создаёт струтуру портфолио
+ * в зависимости от переданных данных. Для корректной работы требует подключения файла стилей.
+ * @param {string} source Путь к Json c объектами
+ * @param {string} triggerCategory Категория для отображения
+ * @param {string} containerId Id контейнера для портфолио
+ * @property {array} items Все объекты
+ * @property {array} itemsInCategory Объекты в выбранной категории
+ * @property {number} currentIdx Индекс отображаемого объекта из выбранной категории
+ */
 class PortfolioModal {
   constructor (source, triggerCategory = 'проводка в квартире и доме', containerId) {
     this.source = source;
@@ -22,6 +32,10 @@ class PortfolioModal {
     this._init();
   }
   
+  /**
+   * Инициализация портфолио
+   * @private
+   */
   _init() {
     this.container.fadeIn(200).css('display', 'flex');
     $('html').css('overflow', 'hidden');
@@ -40,7 +54,12 @@ class PortfolioModal {
         });
   }
   
+  /**
+   * Создание DOM структуры портфолио
+   * @private
+   */
   _renderLayout() {
+    //Создание элементов
     const $content = $('<div class="pm-content"/>');
     const $header = $('<div class="pm-header"/>');
     const $h2 = $('<h2>Наши работы</h2>');
@@ -63,6 +82,7 @@ class PortfolioModal {
     this.slideLeftBtn = $('<div class="pm-control pm-control__left"/>');
     this.slideRightBtn = $('<div class="pm-control pm-control__right"/>');
     
+    //Добавление элементов
     $header.appendTo($content);
     $h2.appendTo($header);
     this.categoriesContainer.appendTo($header);
@@ -91,6 +111,12 @@ class PortfolioModal {
     });
   }
   
+  /**
+   * Отображает объект из портфолио
+   * @param {array} items Объекты для отображения
+   * @param {number} idx Индекс объекта для отображения
+   * @private
+   */
   _renderItem(items, idx) {
     this.currentIdx = idx;
     this.carouselContainer.empty();
@@ -138,6 +164,10 @@ class PortfolioModal {
     this._initCarousel();
   }
   
+  /**
+   * Инициализирует OwlCarousel для отображённого объекта
+   * @private
+   */
   _initCarousel() {
     this.carouselContainer.trigger('destroy.owl.carousel');
     this.carouselContainer.owlCarousel({
@@ -164,12 +194,24 @@ class PortfolioModal {
     this.carouselContainer.trigger('refresh.owl.carousel')
   }
   
-  _renderCategories(categories, container) {
-    categories.forEach(item => {
-      container.append($(`<li>${item}</li>`))
+  /**
+   * Отображает все категории
+   * @param {array} categories Категории для отображения
+   * @param {{jQuery}} $container Контейнер для категорий
+   * @private
+   */
+  _renderCategories(categories, $container) {
+   categories.forEach(item => {
+      $container.append($(`<li>${item}</li>`))
     });
   };
   
+  /**
+   * Возвращает все существующие категории
+   * @param {array} items Все объекты
+   * @returns {Array} categories Все категории
+   * @private
+   */
   _getCategories(items) {
     let categories = [];
     items.forEach(item => {
@@ -180,6 +222,13 @@ class PortfolioModal {
     return categories;
   }
   
+  /**
+   * Возвращает все объекты из конкретной категории
+   * @param {array} items Все объекты
+   * @param {string} category Категория
+   * @returns {Array} itemsInCategory Все объекты в категории
+   * @private
+   */
   _getItemsInCategory(items, category) {
     let itemsInCategory = [];
     items.forEach(item => {
@@ -190,6 +239,11 @@ class PortfolioModal {
     return itemsInCategory;
   }
   
+  /**
+   * Выделяет выбранную категорию в меню
+   * @param {string} category Выбранная категория
+   * @private
+   */
   _setActiveCategory(category) {
     let $categoryElems = this.categoriesContainer.find('li');
     $categoryElems.removeClass('active');
@@ -200,6 +254,11 @@ class PortfolioModal {
     })
   }
   
+  /**
+   * Возвращает индекс следубщего объекта в категории, если следующего нет, то индекс первого
+   * @returns {number} Индекс
+   * @private
+   */
   _getNextItemIdx() {
     if (this.currentIdx === this.itemsInCategory.length - 1) {
       return 0
@@ -208,6 +267,12 @@ class PortfolioModal {
     }
   }
   
+  /**
+   * Возвращает слово с нужным окончанием подобранным к числу перед словом
+   * @param {number} value Число, к которому подбирается слово
+   * @returns {string} Подобранное слово
+   * @private
+   */
   _getEnding(value) {
     /**
      * Возвращает две последних цифры от переданного числа
@@ -244,7 +309,13 @@ class PortfolioModal {
     }
   }
   
+  /**
+   * Инициализация слушателей событий кнопок и других контроллеров
+   * @private
+   */
   _initControllers() {
+    
+    // Закрывает портфолио при нажатии за пределами контейнера
     this.container.click((e) => {
       if (e.target.id === 'modalPortfolioScreen') {
         this.container.empty();
@@ -252,17 +323,22 @@ class PortfolioModal {
         $('html').css('overflow', 'auto');
       }
     });
+    
+    // Кнопка закрыть
     this.closeBtn.click(() => {
       this.container.empty();
       this.container.fadeOut(200);
       $('html').css('overflow', 'auto');
     });
+    
+    //Переключение между категориями
     this.categoriesContainer.click('li', (e) => {
       this._setActiveCategory($(e.target).text());
       this.itemsInCategory = this._getItemsInCategory(this.items, $(e.target).text());
       this._renderItem(this.itemsInCategory, 0)
     });
-  
+    
+    //Переключение между объектами в категории
     this.anotherBtn.click(() => {
       this._renderItem(this.itemsInCategory, this._getNextItemIdx());
     })
