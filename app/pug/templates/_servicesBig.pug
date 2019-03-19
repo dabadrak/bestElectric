@@ -1,5 +1,5 @@
 section.servicesBigWrap
-  article.servicesBigArticle.servicesBigArticle__housesAppartments
+  article.servicesBigArticle.servicesBigArticle__housesAppartments#housesAppartments
     h2 Выполняем под ключ
     .content
       .left
@@ -26,14 +26,14 @@ section.servicesBigWrap
                   span.number 1500
                   span.label &#8381;/м.кв
           .buttons
-            button.button.button__servicesBig.button__grey Цены
-            button.button.button__servicesBig.button__grey Портфолио
+            a(href='#prices').button.button__servicesBig.button__grey Цены
+            button(data-category='проводка в квартире и доме').button.button__servicesBig.button__grey.jsPortfolioModalTrigger Портфолио
             button.button.button__servicesBig.button__bubblyButton Заказть
       .right.img1
-        .imgMask
+        .imgMask(data-category='проводка в квартире и доме').jsPortfolioModalTrigger
           span  Посмотреть другие работы
 
-  article.servicesBigArticle.servicesBigArticle__woodenHouses
+  article.servicesBigArticle.servicesBigArticle__woodenHouses#woodenHouses
     .content
       .left
         .top
@@ -59,13 +59,13 @@ section.servicesBigWrap
                   span.number 1500
                   span.label &#8381;/м.кв
           .buttons
-            button.button.button__servicesBig.button__white Цены
-            button.button.button__servicesBig.button__white Портфолио
+            a(href='#prices').button.button__servicesBig.button__white Цены
+            button(data-category='проводка в квартире и доме').button.button__servicesBig.button__white.jsPortfolioModalTrigger Портфолио
             button.button.button__servicesBig.button__bubblyButton.animate Заказть
       .right.img2
-        .imgMask
+        .imgMask(data-category='проводка в квартире и доме').jsPortfolioModalTrigger
           span  Посмотреть другие работы
-  article.servicesBigArticle.servicesBigArticle__commercial
+  article.servicesBigArticle.servicesBigArticle__commercial#commercial
     .content
       .left
         .top
@@ -92,9 +92,9 @@ section.servicesBigWrap
                   span.number 1500
                   span.label &#8381;/м.кв
           .buttons
-            button.button.button__servicesBig.button__white Цены
-            button.button.button__servicesBig.button__white Портфолио
+            a(href='#prices').button.button__servicesBig.button__white Цены
+            button(data-category='коммерческие объекты').button.button__servicesBig.button__white.jsPortfolioModalTrigger Портфолио
             button.button.button__servicesBig.button__bubblyButton.animate Заказть
       .right.img3
-        .imgMask
+        .imgMask(data-category='коммерческие объекты').jsPortfolioModalTrigger
           span  Посмотреть другие работы

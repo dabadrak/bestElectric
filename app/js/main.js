@@ -4,9 +4,9 @@ $(document).ready(()=> {
     const menu = new Menu('mainMenu',
         [
           new SubMenu('Услуги', '#', 'mainMenuSub', 'mainMenuSubLi', [
-            new MenuItem('Проводка в квартире и доме', '#'),
-            new MenuItem('Проводка в деревянном доме', '#'),
-            new MenuItem('Коммерческие объекты', '#'),
+            new MenuItem('Проводка в квартире и доме', '#housesAppartments'),
+            new MenuItem('Проводка в деревянном доме', '#woodenHouses'),
+            new MenuItem('Коммерческие объекты', '#commercial'),
             new MenuItem('Разные', '#'),
           ]),
           new MenuItem('Цены', '#'),
@@ -21,9 +21,9 @@ $(document).ready(()=> {
     const mobileMenu = new Menu('mobileMenu',
         [
           new SubMenu('Услуги', '#', 'mobileMenuSub', 'mobileMenuSubLi', [
-            new MenuItem('Проводка в квартире и доме', '#'),
-            new MenuItem('Проводка в деревянном доме', '#'),
-            new MenuItem('Коммерческие объекты', '#'),
+            new MenuItem('Проводка в квартире и доме', '#housesAppartments'),
+            new MenuItem('Проводка в деревянном доме', '#woodenHouses'),
+            new MenuItem('Коммерческие объекты', '#commercial'),
             new MenuItem('Разные', '#'),
           ]),
           new MenuItem('Цены', '#'),
@@ -35,6 +35,7 @@ $(document).ready(()=> {
     $mobileMenuContainer.append(mobileMenu._render());
   
   new BubblyButton();
+  
   })();
   
   const control = (() => {
@@ -108,4 +109,12 @@ $(document).ready(()=> {
       e.target.parentNode.classList.add('active')
     });
   })();
+  
+  const servicesBig = (() => {
+    $('.jsPortfolioModalTrigger').click((e) => {
+      new PortfolioModal('../json/portfolioModal.json', e.target.dataset.category, '#modalPortfolioScreen');
+    });
+    
+  })();
+  
 });
